@@ -1122,61 +1122,71 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 </div>
 </section>
 <section id="ch8" class="chapter">
-<h2>第八章：手机PCB/FPC散热研发布局建议</h2>
-<p>基于专利全景分析，结合手机PCB/FPC设计部门的技术定位，提出以下5个研发布局建议方向。</p>
+<h2>第八章：PCB散热研发布局建议</h2>
+<p>基于手机散热技术专利全景分析，结合PCB设计部门的技术定位，从<strong>基板材料、互连结构、界面热管理、均温设计、工艺融合</strong>五个维度提出研发布局建议。</p>
 
 <div class="highlight-box">
-    <h3>💡 建议一：FPC高导热覆铜板（CCL）材料开发</h3>
-    <p><strong>目标：</strong>开发面内导热率≥3 W/mK的FPC专用高导热覆铜板</p>
+    <h3>💡 建议一：高导热覆铜板（CCL）材料开发</h3>
+    <p><strong>目标：</strong>开发面内导热率≥3 W/mK的高导热覆铜板，适用于HDI板、多层板散热基材升级</p>
     <p><strong>参考专利：</strong>US20260333592A1（阿卡什BN/AlN复合填料）、US20250343099A1（NVIDIA金刚石-铜复合材料）</p>
-    <p><strong>技术路线：</strong>在PI基材树脂中添加BN/AlN复合导热填料，优化填料粒径分布与偶联处理，在保持FPC柔韧性前提下提升导热性能。</p>
-    <p><strong>预期指标：</strong>面内导热率≥3 W/mK，剥离强度≥1.0 N/cm，弯折寿命≥10万次。</p>
+    <p><strong>技术路线：</strong>在树脂基体中添加BN/AlN复合导热填料（粒径梯度填充+硅烷偶联处理），优化填料网络与介电性能的平衡。探索石墨烯/金刚石薄膜作为超高导热增强层。</p>
+    <p><strong>适用板型：</strong>HDI板、高多层板、IC载板散热层</p>
+    <p><strong>预期指标：</strong>面内导热率≥3 W/mK，介电常数<4.5（@1GHz），剥离强度≥1.0 N/cm，耐热≥280℃。</p>
 </div>
 
 <div class="highlight-box">
-    <h3>💡 建议二：超薄导热垫片/TIM选型与应用工艺研究</h3>
-    <p><strong>目标：</strong>建立手机FPC散热TIM选型规范与贴合工艺标准</p>
-    <p><strong>参考专利：</strong>CN220273722U（旺祥泰0.15mm超薄垫片）、US20260198376A1（NVIDIA弹性体TIM屏障）</p>
-    <p><strong>技术路线：</strong>系统评估0.1-0.3mm超薄导热垫片的导热率、压缩率、长期可靠性，制定TIM厚度控制（±0.02mm）和边缘防溢出设计规范。</p>
-    <p><strong>预期指标：</strong>TIM界面热阻≤0.05℃·cm²/W，厚度精度±0.02mm，热循环（-40~85℃）1000次后性能衰减&lt;10%。</p>
+    <h3>💡 建议二：散热过孔与HDI工艺融合技术</h3>
+    <p><strong>目标：</strong>将散热过孔设计融入HDI制造工艺，实现散热与信号过孔一体化，降低制造成本</p>
+    <p><strong>参考专利：</strong>US20250210533A1（Samsung导热过孔）、CN122699212A（华美HDI MCPCB共用工艺）、CN122421183A（宏鑫阶梯铜柱）</p>
+    <p><strong>技术路线：</strong>优化散热过孔孔径梯度（大孔径顶层增接触、小孔径底层提填充率）、铜填充率≥95%、布线密度匹配，使散热过孔与HDI微孔共用激光钻孔/电镀工艺。</p>
+    <p><strong>适用板型：</strong>HDI板、IC载板、多层板芯片正下方散热区</p>
+    <p><strong>预期指标：</strong>散热过孔热阻≤5℃/W，HDI工艺兼容率100%，制造成本增加≤15%，铜填充率≥95%。</p>
 </div>
 
 <div class="highlight-box">
-    <h3>💡 建议三：FPC弯折区散热方案研究</h3>
-    <p><strong>目标：</strong>解决折叠屏手机FPC弯折区域的散热难题</p>
-    <p><strong>参考专利：</strong>CN118930269B（汉华折叠石墨膜）、CN224684555U（华为可折叠均温板）、WO2026230730A1（Samsung折叠VC）</p>
-    <p><strong>技术路线：</strong>研究弯折石墨膜（弯折后导热保持率≥85%）与可弯折VC的集成方案，优化弯折区散热覆盖膜的层叠结构与弯折适应性。</p>
-    <p><strong>预期指标：</strong>弯折半径≤3mm，弯折10万次后导热率保持率≥85%，覆盖膜厚度≤0.1mm。</p>
+    <h3>💡 建议三：板级导热界面（TIM）选型与应用规范</h3>
+    <p><strong>目标：</strong>建立PCB散热TIM选型规范与贴合/点胶工艺标准，覆盖芯片-基板、基板-散热器、屏蔽罩内填充全场景</p>
+    <p><strong>参考专利：</strong>CN220273722U（0.15mm超薄垫片）、US20260198376A1（NVIDIA弹性体TIM屏障）、EP4716391A4（多层复合导热垫）</p>
+    <p><strong>技术路线：</strong>系统评估超薄导热垫片（0.1-0.3mm）、导热凝胶、相变TIM在HDI板元件面、载板散热面、屏蔽罩内的适用性。制定TIM厚度控制（±0.02mm）和边缘防溢出设计规范。</p>
+    <p><strong>适用板型：</strong>HDI板元件密集区、IC载板散热面、屏蔽罩内腔</p>
+    <p><strong>预期指标：</strong>TIM界面热阻≤0.05℃·cm²/W，厚度精度±0.02mm，热循环（-40~85℃）1000次后性能衰减<10%。</p>
 </div>
 
 <div class="highlight-box">
-    <h3>💡 建议四：FPC散热过孔与HDI工艺融合</h3>
-    <p><strong>目标：</strong>将散热过孔设计融入HDI制造工艺，降低散热设计成本</p>
-    <p><strong>参考专利：</strong>US20250210533A1（Samsung导热过孔）、CN122699212A（华美HDI MCPCB）、CN122421183A（宏鑫阶梯铜柱）</p>
-    <p><strong>技术路线：</strong>优化散热过孔的孔径梯度、铜填充率和布线密度，使散热过孔与HDI微孔共用钻孔/电镀工艺，降低制造复杂度。</p>
-    <p><strong>预期指标：</strong>散热过孔热阻≤5℃/W，与HDI工艺兼容率100%，制造成本增加≤15%。</p>
+    <h3>💡 建议四：PCB散热均温设计方法</h3>
+    <p><strong>目标：</strong>建立多热源PCB的均温设计规范，覆盖SoC、PMIC、RF等多热源区域的分区散热</p>
+    <p><strong>参考专利：</strong>CN118930269B（汉华折叠石墨膜）、CN224684555U（华为可折叠均温板）、CN122622166A（小米多段式VC）</p>
+    <p><strong>技术路线：</strong>石墨膜/铜箔复合散热覆盖层用于HDI板表面均温，多段式VC/热管用于大面积PCB分区均温。梯度孔隙率毛细芯提升均温效率。</p>
+    <p><strong>适用板型：</strong>HDI板多热源区、大面积多层板、刚挠结合板弯折区</p>
+    <p><strong>预期指标：</strong>板面温度均匀性±2℃，散热覆盖层厚度≤0.1mm，弯折区导热保持率≥85%。</p>
 </div>
 
 <div class="highlight-box">
-    <h3>💡 建议五：FPC-壳体导热界面一体化设计</h3>
-    <p><strong>目标：</strong>建立从FPC到手机壳体的高效导热路径设计规范</p>
-    <p><strong>参考专利：</strong>EP4716391A4（引望多层复合导热垫）、CN120082144A（高导热EMI屏蔽橡胶）、IN202521066567A（凝胶通道散热）</p>
-    <p><strong>技术路线：</strong>设计FPC-屏蔽罩-壳体三层导热界面的TIM布局与材料选型方案，集成导热与EMI屏蔽功能，通过凝胶/垫片填充优化热量传导到壳体表面。</p>
-    <p><strong>预期指标：</strong>FPC到壳体热阻≤2℃/W，EMI屏蔽效能≥30dB，壳体表面温升≤5℃。</p>
+    <h3>💡 建议五：散热与EMC协同设计</h3>
+    <p><strong>目标：</strong>实现散热与电磁屏蔽的一体化设计，避免散热方案对EMC性能的负面影响</p>
+    <p><strong>参考专利：</strong>CN120082144A（高导热EMI屏蔽橡胶）、CN118738672A（分区温控）</p>
+    <p><strong>技术路线：</strong>开发导热+EMI一体化填充材料（导热≥5 W/mK，屏蔽≥30dB），优化屏蔽罩内散热填充布局。建立HDI板热-EMC联合仿真设计流程。</p>
+    <p><strong>适用板型：</strong>HDI板屏蔽罩区域、高密度射频模组PCB、载板EMC屏蔽</p>
+    <p><strong>预期指标：</strong>EMI屏蔽效能≥30dB（30MHz-6GHz），填充材料导热系数≥5 W/mK，散热增强后EMC不劣化。</p>
 </div>
 
 <div class="highlight-box">
-    <h3>🎯 优先级建议</h3>
+    <h3>🎯 优先级与路线图</h3>
     <table class="data-table">
-        <thead><tr><th>优先级</th><th>方向</th><th>技术难度</th><th>预期收益</th><th>建议周期</th></tr></thead>
+        <thead><tr><th>优先级</th><th>方向</th><th>适用板型</th><th>技术难度</th><th>预期收益</th><th>建议周期</th></tr></thead>
         <tbody>
-            <tr><td>⭐⭐⭐</td><td>超薄TIM选型与应用</td><td>低</td><td>高（直接应用）</td><td>3个月</td></tr>
-            <tr><td>⭐⭐⭐</td><td>FPC散热过孔工艺融合</td><td>中</td><td>高（降本增效）</td><td>6个月</td></tr>
-            <tr><td>⭐⭐</td><td>高导热CCL材料开发</td><td>高</td><td>高（材料突破）</td><td>12个月</td></tr>
-            <tr><td>⭐⭐</td><td>FPC弯折区散热方案</td><td>高</td><td>中（折叠屏刚需）</td><td>12个月</td></tr>
-            <tr><td>⭐</td><td>FPC-壳体导热一体化</td><td>中</td><td>中（系统优化）</td><td>6个月</td></tr>
+            <tr><td>⭐⭐⭐</td><td>散热过孔与HDI工艺融合</td><td>HDI板、载板</td><td>中</td><td>高（降本增效）</td><td>6个月</td></tr>
+            <tr><td>⭐⭐⭐</td><td>板级TIM选型与应用规范</td><td>HDI板、载板</td><td>低</td><td>高（直接应用）</td><td>3个月</td></tr>
+            <tr><td>⭐⭐</td><td>高导热CCL材料开发</td><td>HDI板、多层板</td><td>高</td><td>高（材料突破）</td><td>12个月</td></tr>
+            <tr><td>⭐⭐</td><td>PCB散热均温设计方法</td><td>HDI板、大面积板</td><td>中</td><td>中（设计方法）</td><td>6个月</td></tr>
+            <tr><td>⭐</td><td>散热与EMC协同设计</td><td>HDI板、射频PCB</td><td>中</td><td>中（系统优化）</td><td>6个月</td></tr>
         </tbody>
     </table>
+</div>
+
+<div class="highlight-box">
+    <h3>🔗 建议间关联关系</h3>
+    <p><strong>建议二（散热过孔）</strong>是所有方向的基础——过孔工艺融合后，<strong>建议四（均温设计）</strong>的散热覆盖层才能高效嵌入板层。<strong>建议一（高导热CCL）</strong>为各方向提供基材升级路径。<strong>建议三（TIM规范）</strong>和<strong>建议五（EMC协同）</strong>面向整机集成阶段，需与结构、射频团队联合推进。</p>
 </div>
 </section>
 <div class="chapter" style="text-align:center; color:var(--text-secondary);">
@@ -1280,6 +1290,7 @@ new Chart(document.getElementById('focusChart'), {
             scales: { x: { beginAtZero: true }, y: { grid: { display: false } } }
         }
     });
+
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
